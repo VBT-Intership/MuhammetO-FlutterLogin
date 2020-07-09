@@ -69,7 +69,10 @@ class LoginView extends StatelessWidget {
   TextField get buildTextFieldEmail {
     return TextField(
       autofocus: true,
-      decoration: InputDecoration(labelText: AppStrings.instance.emailAdress),
+      decoration: InputDecoration(
+        labelText: AppStrings.instance.emailAdress,
+        floatingLabelBehavior: FloatingLabelBehavior.always,
+      ),
       keyboardType: TextInputType.emailAddress,
     );
   }
@@ -82,8 +85,13 @@ class LoginView extends StatelessWidget {
     );
   }
 
-  InputDecoration buildInputDecorationPassword(BuildContext context) => InputDecoration(
-      labelText: AppStrings.instance.password, suffixIcon: buildForgetPasswordButton(context));
+  InputDecoration buildInputDecorationPassword(BuildContext context) {
+    return InputDecoration(
+      labelText: AppStrings.instance.password,
+      floatingLabelBehavior: FloatingLabelBehavior.always,
+      suffixIcon: buildForgetPasswordButton(context),
+    );
+  }
 
   FlatButton buildForgetPasswordButton(BuildContext context) {
     return FlatButton(
