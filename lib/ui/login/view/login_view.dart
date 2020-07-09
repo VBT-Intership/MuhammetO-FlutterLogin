@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:login_template/random_container_widget.dart';
 
-import 'login_page_padding_row.dart';
+import '../../../core/init/constants/app_strings.dart';
+import '../components/login_page_padding_row.dart';
 
 class LoginView extends StatelessWidget {
   @override
@@ -41,7 +41,8 @@ class LoginView extends StatelessWidget {
     );
   }
 
-  Text buildTextWelcome(BuildContext context) => Text("Welcome!", style: welcomeTextStyle(context));
+  Text buildTextWelcome(BuildContext context) =>
+      Text(AppStrings.instance.welcome, style: welcomeTextStyle(context));
 
   TextStyle welcomeTextStyle(BuildContext context) => Theme.of(context)
       .textTheme
@@ -49,7 +50,7 @@ class LoginView extends StatelessWidget {
       .copyWith(color: Colors.black, fontWeight: FontWeight.w300);
 
   Text buildTextEmployeLogin(BuildContext context) =>
-      Text("Employee Login", style: loginTextStyle(context));
+      Text(AppStrings.instance.employeLogin, style: loginTextStyle(context));
 
   TextStyle loginTextStyle(BuildContext context) => Theme.of(context)
       .textTheme
@@ -57,7 +58,7 @@ class LoginView extends StatelessWidget {
       .copyWith(color: Colors.black, fontWeight: FontWeight.w400);
 
   Text buildTextDescription(BuildContext context) =>
-      Text("Please Sign-in to continue", style: descriptionTextStyle(context));
+      Text(AppStrings.instance.loginDescription, style: descriptionTextStyle(context));
 
   TextStyle descriptionTextStyle(BuildContext context) => Theme.of(context)
       .textTheme
@@ -67,7 +68,7 @@ class LoginView extends StatelessWidget {
   TextField get buildTextFieldEmail {
     return TextField(
       autofocus: true,
-      decoration: InputDecoration(labelText: "Email Address"),
+      decoration: InputDecoration(labelText: AppStrings.instance.emailAdress),
       keyboardType: TextInputType.emailAddress,
     );
   }
@@ -80,16 +81,16 @@ class LoginView extends StatelessWidget {
     );
   }
 
-  InputDecoration buildInputDecorationPassword(BuildContext context) =>
-      InputDecoration(labelText: "Password", suffixIcon: buildForgetPasswordButton(context));
+  InputDecoration buildInputDecorationPassword(BuildContext context) => InputDecoration(
+      labelText: AppStrings.instance.password, suffixIcon: buildForgetPasswordButton(context));
 
   FlatButton buildForgetPasswordButton(BuildContext context) {
     return FlatButton(
       shape: StadiumBorder(),
       onPressed: () {},
-      child: Text("Forgot Password?", style: buildTextStyleForgotPassword(context)),
+      child: Text(AppStrings.instance.forgotPassword, style: buildTextStyleForgotPassword(context)),
     );
-  }
+  } 
 
   TextStyle buildTextStyleForgotPassword(BuildContext context) =>
       Theme.of(context).textTheme.button.copyWith(color: Colors.blue, fontWeight: FontWeight.w400);
@@ -97,8 +98,8 @@ class LoginView extends StatelessWidget {
   FlatButton buildSignInButton(BuildContext context) {
     return FlatButton(
       shape: StadiumBorder(),
-      onPressed: () {},
-      child: Text("Sign In", style: buttonTextStyle(context)),
+      onPressed: () => Navigator.pushNamedAndRemoveUntil(context, '/welcome', (route) => false),
+      child: Text(AppStrings.instance.signIn, style: buttonTextStyle(context)),
       color: Colors.blue,
     );
   }
