@@ -7,6 +7,7 @@ class LoginView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: buildBody(context),
     );
   }
@@ -90,7 +91,7 @@ class LoginView extends StatelessWidget {
       onPressed: () {},
       child: Text(AppStrings.instance.forgotPassword, style: buildTextStyleForgotPassword(context)),
     );
-  } 
+  }
 
   TextStyle buildTextStyleForgotPassword(BuildContext context) =>
       Theme.of(context).textTheme.button.copyWith(color: Colors.blue, fontWeight: FontWeight.w400);

@@ -6,17 +6,22 @@ class WelcomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          buildDoneIcon(context),
-          SizedBox(height: 20),
-          buildSignInText(context),
-          SizedBox(height: 20),
-          buildWelcomeText(context),
-        ],
-      ),
+      backgroundColor: Colors.white,
+      body: buildBody(context),
+    );
+  }
+
+  Column buildBody(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        buildDoneIcon(context),
+        SizedBox(height: 20),
+        buildSignInText(context),
+        SizedBox(height: 20),
+        buildWelcomeText(context),
+      ],
     );
   }
 
